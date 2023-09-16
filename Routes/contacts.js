@@ -13,16 +13,16 @@ router.use(bodyParser.urlencoded({ extended: false }))
 // router.use(express.urlencoded())
 
 
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-      cb(null, 'uploads');
-    },
-    filename: function(req, file, cb) {
-      cb(null, file.originalname);
-    }
-  });
+// const storage = multer.diskStorage({
+//     destination: function(req, file, cb) {
+//       cb(null, 'uploads');
+//     },
+//     filename: function(req, file, cb) {
+//       cb(null, file.originalname);
+//     }
+//   });
   
-  const upload = multer({ storage: storage });
+//   const upload = multer({ storage: storage });
 
 router.get('/contacts',async(req,res)=>{
     try{ 

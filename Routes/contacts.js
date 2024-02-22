@@ -100,4 +100,20 @@ router.delete('/contacts', async (req, res) => {
     }
 })
 
+router.put('/contacts/:id', async (req, res) => {
+    try{
+        await Contacts.updateOne({_id : req.params.id}, req.body);
+        const data =  await Contacts.findOne({_id : req.params.id});
+        res.status(200).json({
+            status: "Success",
+            data
+        })
+    }catch(e){
+        res.status(500).json({
+            status: "Failed",
+            message: e.message
+        })
+    }
+    
+})
 module.exports = router;
